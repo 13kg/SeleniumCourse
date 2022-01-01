@@ -32,7 +32,7 @@ public class StoreLogAndFillAddressSteps {
     private MyAccountPage myAccountPage;
     private MyAddressesPage myAddressesPage;
     private NewAddressPage newAddressPage;
-    private String title;
+
 
 
     @Given("^User registered but logged out on web page (.*)$")
@@ -89,8 +89,8 @@ public class StoreLogAndFillAddressSteps {
     }
 
     @And ("^with(.*)message$")
-    public  void messageCheck(String confirm) {
-        Assertions.assertEquals(myAddressesPage.systemMessageConfirm(), confirm);
+    public  void messageCheck(String confirmMessage) {
+        myAddressesPage.systemMessageConfirm(confirmMessage);
     }
 
     @And("^clear data by 'delete' btn click and sign out$")

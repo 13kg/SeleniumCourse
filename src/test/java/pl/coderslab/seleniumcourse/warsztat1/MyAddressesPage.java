@@ -29,8 +29,10 @@ public class MyAddressesPage {
         assertEquals(url, currentUrlText);
     }
 
-    public String systemMessageConfirm() {
-        return systemMessage.getText();
+    public void systemMessageConfirm(String message) {
+        String currentMessage = (systemMessage.getText());
+        assertEquals(currentMessage,message);
+
     }
 
     public void clearData() {
