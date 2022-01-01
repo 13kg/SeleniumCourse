@@ -93,10 +93,10 @@ public class StoreLogAndFillAddressSteps {
         myAddressesPage.systemMessageConfirm(confirmMessage);
     }
 
-    @And("^clear data by 'delete' btn click and sign out$")
-    public void clearData() {
+    @And("^clear data by 'delete' btn, check (.*) msg and sign out$")
+    public void clearData(String successMessage) {
         this.myAddressesPage = new MyAddressesPage(driver);
-        myAddressesPage.clearData();
+        myAddressesPage.clearData(successMessage);
     }
 
 }

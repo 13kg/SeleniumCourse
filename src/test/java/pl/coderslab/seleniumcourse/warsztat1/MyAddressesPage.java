@@ -35,8 +35,10 @@ public class MyAddressesPage {
 
     }
 
-    public void clearData() {
+    public void clearData(String message) {
         deleteBtn.click();
+        String currentMessage =(systemMessage.getText());
+        assertEquals(currentMessage,message);
         logOutBtn.click();
     }
 }
