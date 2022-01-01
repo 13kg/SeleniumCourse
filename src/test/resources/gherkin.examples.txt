@@ -1,0 +1,17 @@
+Scenario: Search for "Wpustyni i w puszczy" in https://www.qwant.com/
+Given Web page https://www.qwant.com/ opened in browser
+When Search phrase "Wpustyni i w puszczy" entered in search input box
+And key enter pressed
+Then First 3 search results titles contain phrase "Wpustyni i w puszczy"
+
+
+Scenario: Create an account on https://hotel-testlab.coderslab.pl/
+
+Given Web page https://hotel-testlab.coderslab.pl/ opened in browser, user not logged in
+When User click 'Sign In' Btn
+And User type unregistered email in 'create account' section
+And User click 'Create an account'
+And User fill all required data in form
+And User confirm register by click 'Register' Btn
+Then 'Your account has been created.' message is displayed on https://hotel-testlab.coderslab.pl/en/my-account
+
