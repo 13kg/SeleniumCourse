@@ -1,11 +1,10 @@
 Feature: Warsztat2
 
-
 #  Zadanie
 #  warsztatowe 2
 #  Zadanie warsztatowe 2 (dowolny sposób)
 #  Napisz skrypt, który:
-#
+
 #  zaloguje się na tego samego użytkownika z zadania 1,
 #  wybierze do zakupu Hummingbird Printed Sweater (opcja dodatkowa: sprawdzi czy rabat na niego wynosi 20%),
 #  wybierze rozmiar M (opcja dodatkowa: zrób tak żeby można było sparametryzować rozmiar i wybrać S,M,L,XL),
@@ -19,7 +18,7 @@ Feature: Warsztat2
 #  zrobi screenshot z potwierdzeniem zamówienia i kwotą.
 
 #  Dodatkowe kroki dla chętnych:
-#
+
 #  Wejdź w historię zamówień i detale (najpierw kliknij w użytkownika zalogowanego, później kafelek),
 #  sprawdź czy zamówienie znajduje się na liście ze statusem "Awaiting check payment" i kwotą taką samą jak na zamówieniu dwa kroki wcześniej.
 

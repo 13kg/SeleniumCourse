@@ -2,17 +2,20 @@ Feature: Warsztat1
 
 #Zadanie warsztatowe 1 - Selenium WebDriver + Cucumber
 #Utwórz użytkownika manualnie na stronie https://mystore-testlab.coderslab.pl.
-#
 #Możesz wykorzystać tymczasowego maila do utworzenia użytkownika: https://10minutemail.com/.
-#
-#
+
 #Napisz skrypt, który:
-#
+
 #będzie logować się na tego stworzonego użytkownika,
 #wejdzie klikając w kafelek Addresses po zalogowaniu (adres, na którym powinniśmy się znaleźć to: https://mystore-testlab.coderslab.pl/index.php?controller=addresses ),
 #kliknie w + Create new address,
 #wypełni formularz New address - dane powinny być pobierane z tabeli Examples w Gherkinie (alias, address, city, zip/postal code, country, phone),
 #sprawdzi czy dane w dodanym adresie są poprawne.
+
+#  Dodatkowe kroki dla chętnych:
+
+#  Wejdź w historię zamówień i detale (najpierw kliknij w użytkownika zalogowanego, później kafelek),
+#  sprawdź czy zamówienie znajduje się na liście ze statusem "Awaiting check payment" i kwotą taką samą jak na zamówieniu dwa kroki wcześniej.
 
   Scenario Outline: Log in and fill address form on https://mystore-testlab.coderslab.pl
 
