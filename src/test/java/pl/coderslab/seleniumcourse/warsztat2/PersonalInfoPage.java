@@ -30,6 +30,8 @@ public class PersonalInfoPage {
     private WebElement tosAgreeRadio;
     @FindBy (css = "#payment-confirmation > div.ps-shown-by-js > button")
     private WebElement orderWithBtn;
+    @FindBy (css = "#_desktop_user_info > div > a.account")
+    private WebElement customerBtn;
 
 
     public PersonalInfoPage(WebDriver driver) {
@@ -56,6 +58,10 @@ public class PersonalInfoPage {
         payByCheckRadio.click();
         tosAgreeRadio.click();
         orderWithBtn.click();
+    }
+
+    public void customerAccount(){
+        customerBtn.click();
     }
 
 }

@@ -42,13 +42,14 @@ Feature: Warsztat2
     And confirm by click 'continue' btn
     And choose 'presta shop' delivering method, confirm by click 'continue' btn
     And choose 'Pay by Check' payment method, mark agreement, confirm by click 'order with...' btn
-#    Then make a confirm screenshot
-#    And Go to Order History
-#    And check order <status>
-#    And confirm total <price>
+    Then make a confirm screenshot
+    And Go to Order History
+    And check order <status>
+    And clear addresses data, log out
+
 
 
     Examples:
-      |email               |password|product                    |quote    |S, M, L or XL|amount|address        |zip  |city  |
-      |haja@niepodam.pl    |Haja123 |Hummingbird Printed Sweater|SAVE 20% |M            |5     |Hennesy Street |66420|London|
+      |email               |password|product                    |quote    |S, M, L or XL|amount|address        |zip  |city  |status                |
+      |haja@niepodam.pl    |Haja123 |Hummingbird Printed Sweater|SAVE 20% |M            |5     |Hennesy Street |66420|London|Awaiting check payment|
 

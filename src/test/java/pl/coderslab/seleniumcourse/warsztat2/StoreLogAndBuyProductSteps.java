@@ -4,12 +4,21 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.jupiter.api.Assertions;
+import org.junit.platform.commons.util.StringUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pl.coderslab.seleniumcourse.warsztat1.MyAddressesPage;
 import pl.coderslab.seleniumcourse.warsztat1.NewAddressPage;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.time.Duration;
+import java.time.LocalDateTime;
 
 public class StoreLogAndBuyProductSteps {
 
@@ -21,6 +30,12 @@ public class StoreLogAndBuyProductSteps {
     private ProductPage productPage;
     private CartPage cartPage;
     private PersonalInfoPage personalInfoPage;
+    private HistoryPage historyPage;
+    private OrderConfirmationPage orderConfirmationPage;
+    private addressesPage addressesPage;
+    private String orderId;
+    private String totalPrice;
+
 
 //    private NewAddressPage newAddressPage;
 
@@ -120,7 +135,43 @@ public class StoreLogAndBuyProductSteps {
         personalInfoPage.choosePaymentMethod();
     }
 
+    @Then("^make a confirm screenshot$")
+    public void takeScreenshot() throws IOException {
+        this.orderConfirmationPage = new OrderConfirmationPage(driver);
+         orderId = orderConfirmationPage.getOrderId();
+         totalPrice =orderConfirmationPage.getTotalPrice();
 
+        TakesScreenshot screenshot = (TakesScreenshot)driver;
+//Take screenshot (will be saved in default location) and automatically removed after test
+        File tmpScreenshot = screenshot.getScreenshotAs(OutputType.FILE);
+//Copy the screenshot to desired location
+//Path to the location to save screenshot
+//(directory for screenshots MUST exist: C:\test-evidence) e.g.:
+        String currentDateTime = LocalDateTime.now().toString().replaceAll(":", "_");
+        Files.copy(tmpScreenshot.toPath(), Paths.get("C:", "confirm screenshots", "order"+currentDateTime+".png"));
+    }
 
+    @And("^Go to Order History$")
+    public void orderHistory(){
+        personalInfoPage.customerAccount();
+        myAccountPage.goToHistoryPage();
+    }
+
+    @And("^check order (.*)$")
+    public void checkOrderStatus(String orderStatus){
+
+        this.historyPage = new HistoryPage(driver);
+        historyPage.checkOrderId(orderId.substring(17));
+        historyPage.checkStatus(orderStatus);
+        historyPage.checkPrice(totalPrice);
+    }
+
+    @And("^clear addresses data, log out$")
+    public void clearData() {
+        personalInfoPage.customerAccount();
+        myAccountPage.goToAddressesPage();
+        this.addressesPage = new addressesPage(driver);
+        addressesPage.clearData();
+    }
 
 }

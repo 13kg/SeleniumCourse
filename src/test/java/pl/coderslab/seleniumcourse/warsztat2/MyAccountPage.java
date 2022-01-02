@@ -11,6 +11,10 @@ public class MyAccountPage {
     private WebElement addFirstAddressBtn;
     @FindBy(css = "#search_widget > form > input.ui-autocomplete-input")
     private WebElement fillSearchInput;
+    @FindBy(id = "history-link")
+    private WebElement orderHistoryBtn;
+    @FindBy(id ="addresses-link")
+    private WebElement addressesBtn;
 
 
     public MyAccountPage(WebDriver driver) {
@@ -28,4 +32,11 @@ public class MyAccountPage {
         fillSearchInput.submit();        ;
     }
 
+    public void goToHistoryPage(){
+        orderHistoryBtn.click();
+    }
+
+    public void goToAddressesPage() {
+        addressesBtn.click();
+    }
 }
