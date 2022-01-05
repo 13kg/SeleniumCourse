@@ -46,9 +46,7 @@ Feature: Warsztat2
     And check order <status>
     And clear addresses data, log out
 
-
-
     Examples:
-      |email               |password|product                    |quote    |S, M, L or XL|amount|address        |zip  |city  |status                |
-      |haja@niepodam.pl    |Haja123 |Hummingbird Printed Sweater|SAVE 20% |M            |5     |Hennesy Street |66420|London|Awaiting check payment|
+      |email            |password|product                    |quote    |S, M, L or XL|amount|address        |zip  |city  |status                |
+      |haja@niepodam.pl |Haja123 |Hummingbird Printed Sweater|SAVE 20% |M            |5     |Hennesy Street |66420|London|Awaiting check payment|
 

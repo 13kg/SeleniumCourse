@@ -31,6 +31,7 @@ Feature: Warsztat1
     And with<confirm>message
     And with correct data <alias>,<address>,<zip>,<city>,<country>,<phone>
     And clear data by 'delete' btn, check <success> msg and sign out
+
     Examples:
       |email            |password|alias  |address           |zip   |city   |country        |phone     |confirm                     |success                       |confirmUrl|
       |haja@niepodam.pl |Haja123 |HaSz   |Ballantine Street |44100 |London |United Kingdom |123456789 |Address successfully added! |Address successfully deleted! |https://mystore-testlab.coderslab.pl/index.php?controller=addresses|

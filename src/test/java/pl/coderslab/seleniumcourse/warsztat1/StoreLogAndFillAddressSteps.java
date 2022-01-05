@@ -34,7 +34,6 @@ public class StoreLogAndFillAddressSteps {
     private NewAddressPage newAddressPage;
 
 
-
     @Given("^User registered but logged out on web page (.*)$")
     public void openMainPage(String url) {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
