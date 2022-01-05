@@ -8,13 +8,13 @@ import org.openqa.selenium.support.PageFactory;
 public class PersonalInfoPage {
 
     private WebDriver driver;
-    @FindBy (css = "#delivery-address > div > section > div:nth-child(9) > div.col-md-6 > input")
+    @FindBy (name = "address1")
     private WebElement addressInput;
-    @FindBy (css = "#delivery-address > div > section > div:nth-child(11) > div.col-md-6 > input")
+    @FindBy (name = "postcode")
     private WebElement zipInput;
-    @FindBy (css = "#delivery-address > div > section > div:nth-child(12) > div.col-md-6 > input")
+    @FindBy (name = "city")
     private WebElement cityInput;
-    @FindBy (css = "#delivery-address > div > section > div:nth-child(13) > div.col-md-6 > select")
+    @FindBy (name = "id_country")
     private WebElement countryInput;
     @FindBy (css = "#delivery-address > div > section > div:nth-child(13) > div.col-md-6 > select > option:nth-child(2)")
     private WebElement ukSelect;
@@ -32,7 +32,6 @@ public class PersonalInfoPage {
     private WebElement orderWithBtn;
     @FindBy (css = "#_desktop_user_info > div > a.account")
     private WebElement customerBtn;
-
 
     public PersonalInfoPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -63,5 +62,4 @@ public class PersonalInfoPage {
     public void customerAccount(){
         customerBtn.click();
     }
-
 }

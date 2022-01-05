@@ -36,11 +36,6 @@ public class StoreLogAndBuyProductSteps {
     private String orderId;
     private String totalPrice;
 
-
-//    private NewAddressPage newAddressPage;
-
-
-
     @Given("^User registered on web page (.*)$")
     public void openMainPage(String url) {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
@@ -75,8 +70,8 @@ public class StoreLogAndBuyProductSteps {
     public void searchProduct(String productName) {
         this.myAccountPage = new MyAccountPage(driver);
         myAccountPage.searchProduct(productName);
-
     }
+
     @And ("^open Product Page$")
     public void openProductPage(){
         this.searchResultsPage = new SearchResultsPage(driver);
