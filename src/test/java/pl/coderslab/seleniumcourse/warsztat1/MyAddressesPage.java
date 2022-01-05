@@ -18,6 +18,22 @@ public class MyAddressesPage {
     private WebElement deleteBtn;
     @FindBy(css = "#_desktop_user_info > div > a.logout.hidden-sm-down")
     private WebElement logOutBtn;
+    @FindBy(xpath = "/html/body/main/section/div/div/section/section/div[1]/article/div[1]/h4")
+    private WebElement aliasSaved;
+    @FindBy (xpath = "/html/body/main/section/div/div/section/section/div[1]/article/div[1]/address")
+    private WebElement wholeAddressSaved;
+//    @FindBy(xpath = "/html/body/main/section/div/div/section/section/div[1]/article/div[1]/address/text()[1]")
+//    private WebElement fullNameSaved;
+//    @FindBy(xpath = "//*[@id=\"address-19326\"]/div[1]/address/text()[2]")
+//    private WebElement streetSaved;
+//    @FindBy(xpath = "/html/body/main/section/div/div/section/section/div[1]/article/div[1]/address/text()[3]")
+//    private WebElement citySaved;
+//    @FindBy(xpath = "/html/body/main/section/div/div/section/section/div[1]/article/div[1]/address/text()[4]")
+//    private WebElement zipSaved;
+//    @FindBy(xpath = "/html/body/main/section/div/div/section/section/div[1]/article/div[1]/address/text()[5]")
+//    private WebElement countrySaved;
+//    @FindBy(xpath = "/html/body/main/section/div/div/section/section/div[1]/article/div[1]/address/text()[6]")
+//    private WebElement phoneSaved;
 
     public MyAddressesPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -34,6 +50,25 @@ public class MyAddressesPage {
         assertEquals(currentMessage,message);
 
     }
+
+    public void dataCheck(String alias, String address, String zip, String city, String country, String phone){
+        String aliasCheck = (aliasSaved.getText());
+        assertEquals(aliasCheck, alias);
+//        String addressCheck = (streetSaved.getText());
+//        assertEquals(addressCheck, address);
+//        String zipCheck = (zipSaved.getText());
+//        assertEquals(zipCheck, zip);
+//        String cityCheck = (citySaved.getText());
+//        assertEquals(cityCheck, city);
+//        String phoneCheck = (phoneSaved.getText());
+//        assertEquals(phoneCheck, phone);
+        String allAddressData = (wholeAddressSaved.getText());
+        System.out.println(allAddressData);
+        String joinedAddressData =("Haja Sznaps\n" + address+"\n" +city+"\n"+ zip+"\n" + country+"\n" + phone);
+        System.out.println(joinedAddressData);
+        assertEquals(joinedAddressData,allAddressData);
+    }
+
 
     public void clearData(String message) {
         deleteBtn.click();

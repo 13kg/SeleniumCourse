@@ -25,11 +25,12 @@ Feature: Warsztat1
     And fill password input<password>
     And confirm by click 'Sign In' Btn
     And click on 'Add First Address' Btn
-    And fill fields <alias>,<address>,<zip>,<city>,<phone>
+    And fill fields <alias>,<address>,<zip>,<city>,<country>,<phone>
     And confirm by 'save' Btn
     Then Addresses list is displayed on <confirmUrl> page
     And with<confirm>message
+    And with correct data <alias>,<address>,<zip>,<city>,<country>,<phone>
     And clear data by 'delete' btn, check <success> msg and sign out
     Examples:
-      |email               |password|alias  |address             |zip      |city          |phone         |confirm                     |success                       |confirmUrl|
-      |haja@niepodam.pl    |Haja123 |HaSz   |Ballantine Street   |44100    |London        |123456789     |Address successfully added! |Address successfully deleted! |https://mystore-testlab.coderslab.pl/index.php?controller=addresses|
+      |email            |password|alias  |address           |zip   |city   |country        |phone     |confirm                     |success                       |confirmUrl|
+      |haja@niepodam.pl |Haja123 |HaSz   |Ballantine Street |44100 |London |United Kingdom |123456789 |Address successfully added! |Address successfully deleted! |https://mystore-testlab.coderslab.pl/index.php?controller=addresses|

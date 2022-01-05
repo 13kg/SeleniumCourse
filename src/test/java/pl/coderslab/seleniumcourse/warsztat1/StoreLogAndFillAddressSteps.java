@@ -71,8 +71,8 @@ public class StoreLogAndFillAddressSteps {
         myAccountPage.addFirstAddressBtn();
     }
 
-    @And("^fill fields (.*),(.*),(.*),(.*),(.*)$")
-    public void fillForm(String alias, String address, String zip, String city, String phone) {
+    @And("^fill fields (.*),(.*),(.*),(.*),(.*),(.*)$")
+    public void fillForm(String alias, String address, String zip, String city, String country, String phone) {
         this.newAddressPage = new NewAddressPage(driver);
         newAddressPage.fillForm(alias, address, zip, city, phone);
     }
@@ -91,6 +91,11 @@ public class StoreLogAndFillAddressSteps {
     @And ("^with(.*)message$")
     public  void messageCheck(String confirmMessage) {
         myAddressesPage.systemMessageConfirm(confirmMessage);
+    }
+
+    @And("^with correct data (.*),(.*),(.*),(.*),(.*),(.*)$")
+    public void dataCheck(String alias, String address, String zip, String city, String country, String phone){
+        myAddressesPage.dataCheck(alias,address,zip,city,country,phone);
     }
 
     @And("^clear data by 'delete' btn, check (.*) msg and sign out$")

@@ -8,27 +8,27 @@ import org.openqa.selenium.support.PageFactory;
 
 public class NewAddressPage {
     private WebDriver driver;
-    @FindBy (css = "#content > div > div > form > section > div:nth-child(5) > div.col-md-6 > input")
+    @FindBy (name = "alias")
     private WebElement aliasInput;
 
-    @FindBy (xpath = "//*[@id=\"content\"]/div/div/form/section/div[6]/div[1]/input")
+    @FindBy (name = "address1")
     private WebElement addressInput;
 
-    @FindBy (css = "#content > div > div > form > section > div:nth-child(12) > div.col-md-6 > input")
+    @FindBy (name = "postcode")
     private WebElement zipInput;
 
-    @FindBy (css = "#content > div > div > form > section > div:nth-child(13) > div.col-md-6 > input")
+    @FindBy (name = "city")
     private WebElement cityInput;
 
-    @FindBy (css = "#content > div > div > form > section > div:nth-child(14) > div.col-md-6 > select")
+    @FindBy (name = "id_country")
     private WebElement countryInput;
     @FindBy (css = "#content > div > div > form > section > div:nth-child(14) > div.col-md-6 > select > option:nth-child(2)")
     private WebElement ukSelect;
 
-    @FindBy (css = "#content > div > div > form > section > div:nth-child(15) > div.col-md-6 > input")
+    @FindBy (name = "phone")
     private WebElement phoneInput;
 
-    @FindBy (css = "#content > div > div > form > footer > button")
+    @FindBy (xpath = "/html/body/main/section/div/div/section/section/div/div/form/footer/button")
     private WebElement saveBtn;
 
     public NewAddressPage(WebDriver driver) {
@@ -44,9 +44,10 @@ public class NewAddressPage {
         addressInput.sendKeys(address);
         zipInput.sendKeys(zip);
         cityInput.sendKeys(city);
+        phoneInput.sendKeys(phone);
         countryInput.click();
         ukSelect.click();
-        phoneInput.sendKeys(phone);
+
     }
 
     public void saveBtn(){
