@@ -21,6 +21,7 @@ public class ProductPage {
     private WebElement proceedToBtn;
 
 
+
     public ProductPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }

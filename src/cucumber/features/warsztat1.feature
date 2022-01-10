@@ -13,9 +13,9 @@ Feature: Warsztat1
 #sprawdzi czy dane w dodanym adresie są poprawne.
 
 #  Dodatkowe kroki dla chętnych:
-
-#  Wejdź w historię zamówień i detale (najpierw kliknij w użytkownika zalogowanego, później kafelek),
-#  sprawdź czy zamówienie znajduje się na liście ze statusem "Awaiting check payment" i kwotą taką samą jak na zamówieniu dwa kroki wcześniej.
+#
+#  usunie powyższy adres klikając w "delete",
+#  sprawdzi czy adres został usunięty.
 
   Scenario Outline: Log in and fill address form on https://mystore-testlab.coderslab.pl
 
